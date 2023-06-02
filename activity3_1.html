@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function computeOperation() {
+      var selectMenu = document.getElementById("operation");
+      var operation = parseInt(selectMenu.value);
+      var initialValue = 1;
+      var previousValue = parseInt(document.getElementById("final").textContent);
+      var finalValue;
+      var operationText;
+
+      switch (operation) {
+        case 1:
+          finalValue = previousValue + 1;
+          operationText = "Add 1";
+          break;
+        case 2:
+          finalValue = previousValue * 2;
+          operationText = "Multiply by 2";
+          break;
+        case 3:
+          finalValue = previousValue - 4;
+          operationText = "Subtract 4";
+          break;
+        default:
+          finalValue = previousValue;
+          operationText = "No selected";
+          break;
+      }
+      document.getElementById("selected").textContent = operationText;
+      document.getElementById("previous").textContent = previousValue;
+      document.getElementById("final").textContent = finalValue;
+    }
+  </script>
+</head>
+
+<body>
+    <p>The initial value is <b><span id="initial">1</span></b></p>
+        <p>Select Operation: </br>
+            <select id="operation">
+            <option value="1">Add 1</option>
+            <option value="2">Multiply by 2</option>
+            <option value="3">Subtract 4</option>
+            </select>
+        </p>
+    <button onclick="computeOperation()">Compute</button>
+
+    <br>
+
+    <p>You have selected: <b><span id="selected"></span></b></p>
+    <p>The previous value is: <b><span id="previous">1</span></b></p>
+    <p>The final value is: <b><span id="final">1</span></b></p>
+</body>
+
+</html>
